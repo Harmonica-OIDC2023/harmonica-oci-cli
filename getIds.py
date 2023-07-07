@@ -54,5 +54,5 @@ elif sys.argv[1] == "apideploy":
                 dotenv.set_key(dotenv_file, "APIDEPLOY_ENDPOINT",
                                data["endpoint"])
                 os.system("echo api-endpoint: %s" %
-                          os.environ["APIDEPLOY_ENDPOINT"])
+                          data["endpoint"])
                 break
