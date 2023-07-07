@@ -31,10 +31,9 @@ cat ~/.oci/config
 [DEFAULT]
 user=ocid1.user.oc1..<unique_ID>
 fingerprint=<your_fingerprint>
-key_file=~/.oci/oci_api_key.pem
 tenancy=ocid1.tenancy.oc1..<unique_ID>
-# Some comment
 region=us-ashburn-1
+key_file=~/.oci/oci_api_key.pem
 ```
 
 ## 3. Fill in dotenv file
@@ -49,7 +48,7 @@ vi ~/.env
 COMPARTMENT_ID='.'
 FNAPP_NAME='test-cli2'
 SUBNET_ID='.'
-ORDS_BASE_UTL='.'
+ORDS_BASE_URL='.'
 DB_USER_SECRET_OCID='test_user'
 DB_PASSWORD_SECRET_OCID='Qwerty12345!'
 FNFNC_NAME='product-store-operations-python'
@@ -65,17 +64,23 @@ APIDEPLOY_NAME='test-cli-gw-deploy2'
 
 ## 4. Initialize function
 
+### 1) command `fn` should be set
+
+- Check out `OCI Functions > Applications > Resources > Getting Started > Local setup`.
+
+### +) You can newly make it with `fn init` or use the original one.
+
 ```bash
 cd my-func
 ```
 
-### 1) You can newly make it with `fn init` or use the original one.
-
 - But notice that all vars and settings(especially apideploy-spec.json) **are fitted with the original one**.
 
-### 2) Check out `OCI Functions > Applications > Resources > Getting Started > Local setup`.
+### 5. Customize api gateway
 
-## 5. Execute Startup
+- Check out `./apideploy-spec.json` and make your own
+
+## 6. Execute Startup
 
 ```bash
 sudo chmod +x ./startup.sh
