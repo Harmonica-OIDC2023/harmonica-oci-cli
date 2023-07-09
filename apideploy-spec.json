@@ -1,0 +1,51 @@
+{
+  "requestPolicies": {
+    "cors": {
+      "allowedOrigins": ["*"],
+      "allowedMethods": ["*"],
+      "allowedHeaders": ["*"]
+    }
+  },
+  "routes": [
+    {
+      "path": "/getProducts",
+      "methods": ["GET"],
+      "backend": {
+        "type": "ORACLE_FUNCTIONS_BACKEND",
+        "functionId": "FUNCTION_ID"
+      }
+    },
+    {
+      "path": "/addProduct",
+      "methods": ["POST"],
+      "backend": {
+        "type": "ORACLE_FUNCTIONS_BACKEND",
+        "functionId": "FUNCTION_ID"
+      }
+    },
+    {
+      "path": "/updateProduct",
+      "methods": ["POST"],
+      "backend": {
+        "type": "ORACLE_FUNCTIONS_BACKEND",
+        "functionId": "FUNCTION_ID"
+      }
+    },
+    {
+      "path": "/deleteProduct",
+      "methods": ["POST"],
+      "backend": {
+        "type": "ORACLE_FUNCTIONS_BACKEND",
+        "functionId": "FUNCTION_ID"
+      }
+    },
+    {
+      "path": "/",
+      "methods": ["GET"],
+      "backend": {
+        "type": "HTTP_BACKEND",
+        "url": "https://objectstorage.ap-chuncheon-1.oraclecloud.com/p/WRNMxOX7hAS8hZonInpdu0SiNztl1jVtky3jgCn9e7Pbye2wMOTOaTr9QrUvrhpR/n/axesauzalrs1/b/bucket-20230623-1744/o/"
+      }
+    }
+  ]
+}
