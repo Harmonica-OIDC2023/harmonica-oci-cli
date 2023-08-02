@@ -2,7 +2,6 @@
 source .env
 touch fnapp.json fnfnc.json apigw.json apideploy.json
 
-mkdir logs
 export logfile_name=log-`date +%m-%d-%y_%T`
 touch logs/$logfile_name
 
@@ -20,7 +19,7 @@ echo "### 1. fn application created ###########################" >> logs/$logfil
 
 # DEPLOY FUNCTION
 cd my-func
-fn deploy --app $FNAPP_NAME >> logs/$logfile_name
+fn deploy --app $FNAPP_NAME >> ../logs/$logfile_name
 cd ../
 echo "### 2. fn deploy done ###################################"
 echo "### 2. fn deploy done ###################################" >> logs/$logfile_name
@@ -34,6 +33,7 @@ echo "### 3. fn app listed ####################################" >> logs/$logfil
 
 # FUNCTION FUNCTION LIST
 oci fn function list --application-id $FNAPP_ID --all > fnfnc.json
+cp ./apideploy-spec.json.bak ./apideploy-spec.json
 python3 ./getIds.py "fnfnc" # set $FNFNC_ID
 source .env
 echo "### 4. fn function listed ###############################"
@@ -48,7 +48,7 @@ echo "### 5. api gateway created ##############################" >> logs/$logfil
 ## Until status turns from CREATING to ACTIVE
 i=0
 echo "api-gateway initializing... can take over 30 seconds..."
-while True
+while true
 do
     oci api-gateway gateway list -c $COMPARTMENT_ID --all > apigw.json
     if [ `python3 ./getIds.py "apigw"` = "CREATING" ] # set $APIGW_ID

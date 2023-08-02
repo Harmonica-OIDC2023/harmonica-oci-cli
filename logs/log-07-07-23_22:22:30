@@ -1,0 +1,159 @@
+### 1. fn application created ###########################
+### 2. fn deploy done ###################################
+### 3. fn app listed ####################################
+### 4. fn function listed ###############################
+{
+  "data": {
+    "ca-bundles": null,
+    "certificate-id": null,
+    "compartment-id": "ocid1.tenancy.oc1..aaaaaaaagkmgmjlchsvkyk2xfuvr5hhlqklr5ppah66n6k47z2dy7xn2wjuq",
+    "defined-tags": {
+      "Oracle-Tags": {
+        "CreatedBy": "default/ryann3@sookmyung.ac.kr",
+        "CreatedOn": "2023-07-07T13:22:38.379Z"
+      }
+    },
+    "display-name": "test-cli-gw",
+    "endpoint-type": "PUBLIC",
+    "freeform-tags": {},
+    "hostname": "bcmltzeu5hqxcbqgo7ixdecnz4.apigateway.us-ashburn-1.oci.customer-oci.com",
+    "id": "ocid1.apigateway.oc1.iad.amaaaaaa6ydlnziamj45xohsyctivmsdguxwyzmve3ql62bjfhcdgah4mmbq",
+    "ip-addresses": [
+      {
+        "ip-address": null
+      }
+    ],
+    "lifecycle-details": null,
+    "lifecycle-state": "CREATING",
+    "network-security-group-ids": null,
+    "response-cache-details": {
+      "type": "NONE"
+    },
+    "subnet-id": "ocid1.subnet.oc1.iad.aaaaaaaak5xcagncijm745pg2qlzu6tulscelmchewge5jp4wmhbcpg2tyka",
+    "time-created": "2023-07-07T13:22:39.377000+00:00",
+    "time-updated": "2023-07-07T13:22:39.377000+00:00"
+  },
+  "etag": "\"0a90ef242623cb926fd9b26935e810bf4dc6ae65cd31ae2a19345181f2d320dc\"",
+  "opc-work-request-id": "ocid1.apiworkrequest.oc1.iad.amaaaaaa6ydlnziaionovqd3fgd7ecpuj6nmbsvuxrmgntr4vr5ej2sgoyoa"
+}
+### 5. api gateway created ##############################
+### 6. api gateway listed ###############################
+{
+  "data": {
+    "compartment-id": "ocid1.tenancy.oc1..aaaaaaaagkmgmjlchsvkyk2xfuvr5hhlqklr5ppah66n6k47z2dy7xn2wjuq",
+    "defined-tags": {
+      "Oracle-Tags": {
+        "CreatedBy": "default/ryann3@sookmyung.ac.kr",
+        "CreatedOn": "2023-07-07T13:23:38.473Z"
+      }
+    },
+    "display-name": "test-cli-gw-deploy",
+    "endpoint": "https://bcmltzeu5hqxcbqgo7ixdecnz4.apigateway.us-ashburn-1.oci.customer-oci.com/",
+    "freeform-tags": {},
+    "gateway-id": "ocid1.apigateway.oc1.iad.amaaaaaa6ydlnziamj45xohsyctivmsdguxwyzmve3ql62bjfhcdgah4mmbq",
+    "id": "ocid1.apideployment.oc1.iad.amaaaaaa6ydlnziafowltdpjrg7qtc6vgjdfmmkxseja2ywbeaw25axydd7a",
+    "lifecycle-details": null,
+    "lifecycle-state": "CREATING",
+    "path-prefix": "/",
+    "specification": {
+      "logging-policies": null,
+      "request-policies": {
+        "authentication": null,
+        "cors": {
+          "allowed-headers": [
+            "*"
+          ],
+          "allowed-methods": [
+            "*"
+          ],
+          "allowed-origins": [
+            "*"
+          ],
+          "exposed-headers": [],
+          "is-allow-credentials-enabled": false,
+          "max-age-in-seconds": 0
+        },
+        "dynamic-authentication": null,
+        "mutual-tls": null,
+        "rate-limiting": null,
+        "usage-plans": null
+      },
+      "routes": [
+        {
+          "backend": {
+            "function-id": "ocid1.fnfunc.oc1.iad.aaaaaaaarfg2a56kg252optrso5ed2x7gpxwwwfm5tq6msuks7bmlbbwwcuq",
+            "type": "ORACLE_FUNCTIONS_BACKEND"
+          },
+          "logging-policies": null,
+          "methods": [
+            "GET"
+          ],
+          "path": "/getProducts",
+          "request-policies": null,
+          "response-policies": null
+        },
+        {
+          "backend": {
+            "function-id": "ocid1.fnfunc.oc1.iad.aaaaaaaarfg2a56kg252optrso5ed2x7gpxwwwfm5tq6msuks7bmlbbwwcuq",
+            "type": "ORACLE_FUNCTIONS_BACKEND"
+          },
+          "logging-policies": null,
+          "methods": [
+            "POST"
+          ],
+          "path": "/addProduct",
+          "request-policies": null,
+          "response-policies": null
+        },
+        {
+          "backend": {
+            "function-id": "ocid1.fnfunc.oc1.iad.aaaaaaaarfg2a56kg252optrso5ed2x7gpxwwwfm5tq6msuks7bmlbbwwcuq",
+            "type": "ORACLE_FUNCTIONS_BACKEND"
+          },
+          "logging-policies": null,
+          "methods": [
+            "POST"
+          ],
+          "path": "/updateProduct",
+          "request-policies": null,
+          "response-policies": null
+        },
+        {
+          "backend": {
+            "function-id": "ocid1.fnfunc.oc1.iad.aaaaaaaarfg2a56kg252optrso5ed2x7gpxwwwfm5tq6msuks7bmlbbwwcuq",
+            "type": "ORACLE_FUNCTIONS_BACKEND"
+          },
+          "logging-policies": null,
+          "methods": [
+            "POST"
+          ],
+          "path": "/deleteProduct",
+          "request-policies": null,
+          "response-policies": null
+        },
+        {
+          "backend": {
+            "connect-timeout-in-seconds": 60.0,
+            "is-ssl-verify-disabled": false,
+            "read-timeout-in-seconds": 10.0,
+            "send-timeout-in-seconds": 10.0,
+            "type": "HTTP_BACKEND",
+            "url": "https://objectstorage.us-ashburn-1.oraclecloud.com/p/x5C4S9zyGgOVaHhIqHHVbTw3XJpOpVbv6i-Bwl_Nj9zFqzE9GcqJBXMep6bM7U2N/n/idhxkx7uajar/b/harmonica-bucket/o/harmonica-bucketindex.html"
+          },
+          "logging-policies": null,
+          "methods": [
+            "GET"
+          ],
+          "path": "/",
+          "request-policies": null,
+          "response-policies": null
+        }
+      ]
+    },
+    "time-created": "2023-07-07T13:23:38.793000+00:00",
+    "time-updated": "2023-07-07T13:23:38.793000+00:00"
+  },
+  "etag": "\"5f3d2c327d2017e6ae5ed43870eaa3b0f19b79159308350453db491a62a91c34\"",
+  "opc-work-request-id": "ocid1.apiworkrequest.oc1.iad.amaaaaaa6ydlnziaah6y7qp3gybqxetuvpkjjp5oz4exnelpr4x2l2b2kaxa"
+}
+### 7. api deployment created ###########################
